@@ -76,23 +76,45 @@ ul, li {
 
 #header{
 	padding: 10px 20px;
+	background: #003d4c;
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
-	color: #fff;
-	padding: 0px 30px;
-}
-#header h1 a {
-	color: #fff;
 	background: #003d4c;
+	color: #fff;
+	float: left;
+}
+#header a {
+	color: #fff;
 	font-weight: normal;
 	text-decoration: none;
 }
-#header h1 a:hover {
-	color: #fff;
-	background: #003d4c;
+#header a:hover {
 	text-decoration: underline;
+}
+#header nav {
+	float: right;
+}
+#header nav a {
+	margin: 2em;
+}
+#header .dropdown {
+	background: #547C87;
+	list-style: none;
+	position: absolute;
+	margin-top: 0.4em;
+	right: 0;
+	font-size: 90%;
+	display: none;
+}
+#header .dropdown li {
+	padding: 1em 0;
+}
+#header .dropdown li>hr {
+	padding: 0;
+}
+a#nav-username {
+	color: #993;
 }
 #content{
 	background: #fff;
