@@ -30,7 +30,7 @@ Router::connect(
 );
 
 Router::connect(
-	'/mycollection', array('controller' => 'users', 'action' => 'view_collection')
+	'/mycollection/*', array('controller' => 'game_collections', 'action' => 'view_collection')
 );
 
 Router::connect(

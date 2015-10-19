@@ -34,7 +34,10 @@
  */
 class AppController extends Controller {
 
+    var $helpers = array('Form', 'Html', 'Javascript', 'Time', 'Session');
     var $components = array('Auth', 'Session');
+
+
 
     function beforeFilter() {
         $this->Auth->fields = array(

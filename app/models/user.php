@@ -37,10 +37,10 @@ class User extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
-		'Offer' => array(
-			'className' => 'Offer',
+		'Request' => array(
+			'className' => 'Request',
 			'foreignKey' => 'user_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
@@ -50,37 +50,10 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Request' => array(
-			'className' => 'Request',
+		'GameCollection' => array(
+			'className' => 'GameCollection',
 			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
-
-	var $hasAndBelongsToMany = array(
-		'game_collections' => array(
-			'className' => 'game_collections',
-			'joinTable' => 'games',
-			'foreignKey' => 'user_id',
-			'associationForeignKey' => 'game_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
+			'dependent' => true
 		)
 	);
 
