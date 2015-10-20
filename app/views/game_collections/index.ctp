@@ -19,7 +19,14 @@ foreach ($collection as $game) {
             $game['Game']['price'],
             $game['Offer']
                 ? $this->Time->format('d/m/Y', $game['Offer'][0]['created'])
-                : $this->Html->link(__('Offer now', true), '/myoffers/3')
+                : $this->Html->link(
+                    __('Offer now', true),
+                    array(
+                        'controller' => 'offers',
+                        'action' => 'add',
+                        $game['GameCollection']['id']
+                    )
+                )
         )
     );
 }

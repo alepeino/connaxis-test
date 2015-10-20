@@ -30,11 +30,17 @@ Router::connect(
 );
 
 Router::connect(
-	'/mycollection/*', array('controller' => 'game_collections', 'action' => 'view_collection')
+	'/mycollection/:action/*', array('controller' => 'game_collections')
+);
+Router::connect(
+	'/mycollection', array('controller' => 'game_collections')
 );
 
 Router::connect(
-	'/myoffers', array('controller' => 'offers', 'action' => 'view_offers')
+	'/myoffers/:action/*', array('controller' => 'offers')
+);
+Router::connect(
+	'/myoffers', array('controller' => 'offers')
 );
 
 Router::connect(

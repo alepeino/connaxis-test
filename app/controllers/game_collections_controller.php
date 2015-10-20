@@ -1,7 +1,7 @@
 <?php
 class GameCollectionsController extends AppController {
 
-	function view_collection() {
+	function index() {
 		$collection = $this->GameCollection->find('all',
 			array (
 				'conditions' => array (
@@ -9,7 +9,7 @@ class GameCollectionsController extends AppController {
 				)
 			)
 		);
-		$this->set('collection',$collection);
+		$this->set('collection', $collection);
 	}
 
 }
