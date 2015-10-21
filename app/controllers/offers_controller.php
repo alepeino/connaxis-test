@@ -47,7 +47,6 @@ class OffersController extends AppController {
             }
         }
         else {
-            //var_dump($this->data);exit();
             $this->Offer->saveField('game_collection_id', $this->data['GameCollection']['id']);
             $this->redirect('/mycollection');
         }

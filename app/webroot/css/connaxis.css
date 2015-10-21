@@ -157,6 +157,9 @@ div.centered {
 	text-align: center;
 	margin-top: 2em;
 }
+div.table-paginator {
+	text-align: right;
+}
 
 /** Tables **/
 table {
@@ -353,6 +356,9 @@ input[type=submit] {
 	display: inline;
 	font-size: 110%;
 	width: auto;
+}
+input[readonly] {
+	background: #eee;
 }
 form .submit input[type=submit] {
 	background:#62af56;
