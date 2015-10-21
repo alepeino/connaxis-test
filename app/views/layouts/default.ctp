@@ -27,8 +27,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script>
 		$(function() {
-			$(".dropdown-toggle").click(function () {
-				$(this).next(".dropdown").slideToggle();
+			$('.dropdown-toggle').click(function (e) {
+				$(this).next('.dropdown').slideToggle();
+				e.stopPropagation();
+			});
+			$(document).click(function () {
+				$('.dropdown').slideUp();
 			});
 		});
 	</script>
