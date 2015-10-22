@@ -202,15 +202,15 @@ DROP TABLE IF EXISTS `trades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trades` (
-  `id` char(36) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(36) NOT NULL AUTO_INCREMENT,
   `offer_id` char(36) COLLATE utf8_unicode_ci DEFAULT NULL,
   `request_id` char(36) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `offer_id` (`offer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,6 +219,7 @@ CREATE TABLE `trades` (
 
 LOCK TABLES `trades` WRITE;
 /*!40000 ALTER TABLE `trades` DISABLE KEYS */;
+INSERT INTO `trades` VALUES (7,'562714c1-c680-475b-b64f-02bc2c286a2a','56285391-d1d4-45a9-8652-03702c286a2a',1,'2015-10-22 19:48:44','2015-10-22 19:48:44');
 /*!40000 ALTER TABLE `trades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +249,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'gordon.freeman@blackmesa.net','57d6c2535d86865db6a95a68d33f85deac8d7e4b','gFreeman',100.00,'2015-10-16 16:34:30','2015-10-16 16:34:30'),(2,'shigeru.miyamoto@nintendo.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Shigeru',50.00,'2015-10-16 16:35:33','2015-10-22 02:29:33'),(3,'jcdenton@unatco.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','JCD',200.00,'2015-10-16 16:35:55','2015-10-22 03:10:09'),(4,'terra@ff6.org','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Terra',150.00,'2015-10-16 16:36:48','2015-10-16 16:36:48'),(5,'leon.kennedy@rcpd.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Leon',250.00,'2015-10-16 16:37:55','2015-10-21 04:29:34');
+INSERT INTO `users` VALUES (1,'gordon.freeman@blackmesa.net','57d6c2535d86865db6a95a68d33f85deac8d7e4b','gFreeman',100.00,'2015-10-16 16:34:30','2015-10-16 16:34:30'),(2,'shigeru.miyamoto@nintendo.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Shigeru',50.00,'2015-10-16 16:35:33','2015-10-22 02:29:33'),(3,'jcdenton@unatco.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','JCD',82.50,'2015-10-16 16:35:55','2015-10-22 03:10:09'),(4,'terra@ff6.org','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Terra',150.00,'2015-10-16 16:36:48','2015-10-16 16:36:48'),(5,'leon.kennedy@rcpd.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Leon',250.00,'2015-10-16 16:37:55','2015-10-21 04:29:34');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +266,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `do_matches`()
+CREATE PROCEDURE `do_matches`()
 BEGIN
 	SET @last_offer := @last_request := '';
 	
@@ -314,15 +315,36 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `do_trade`(offer_id CHAR(36), request_id CHAR(36))
+CREATE PROCEDURE `do_trade`(off_id CHAR(36), req_id CHAR(36))
 BEGIN
-	INSERT INTO prueba (offer_id, request_id) VALUES(offer_id, request_id);
+	START TRANSACTION;
+	
+	UPDATE users u
+	JOIN requests r ON r.user_id = u.id
+	JOIN games g ON r.game_id = g.id
+	JOIN game_collections gc ON gc.game_id = g.id
+	JOIN offers o ON o.game_collection_id = gc.id	 
+	SET u.account_balance = u.account_balance - g.price
+	WHERE o.id = off_id
+	AND r.id = req_id
+	AND u.account_balance >= g.price;
+	
+	IF ROW_COUNT() = 1
+	THEN
+		INSERT INTO trades (offer_id, request_id, created, modified)
+		VALUES (off_id, req_id, NOW(), NOW());
+		
+		COMMIT;
+	ELSE
+	 	ROLLBACK;
+	END IF;	
+	
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -339,7 +361,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `iterate_matches`()
+CREATE PROCEDURE `iterate_matches`()
 BEGIN
 	DECLARE finished INTEGER DEFAULT 0;
 	DECLARE off_id CHAR(36);
@@ -377,4 +399,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-22  1:28:08
+-- Dump completed on 2015-10-22 19:55:13
