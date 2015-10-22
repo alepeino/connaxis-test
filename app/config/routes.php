@@ -44,5 +44,8 @@ Router::connect(
 );
 
 Router::connect(
-	'/myrequest', array('controller' => 'offers', 'action' => 'view_requests')
+	'/myrequests/:action/*', array('controller' => 'requests')
+);
+Router::connect(
+	'/myrequests', array('controller' => 'requests')
 );
