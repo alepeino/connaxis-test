@@ -13,12 +13,22 @@
         );
 
         foreach ($offers as $offer) {
+            $match = '';
+            if ($offer['Trade']['id']) {
+                $match = $this->Html->link(
+                    __('Match Found!', true),
+                    array('controller' => 'trades', 'action' => 'add', $offer['Trade']['id']),
+                    array('class' => 'button match')
+                );
+            }
+
             echo $this->Html->tableCells(
                 array(
                     $offer['GameCollection']['Game']['title'],
                     $offer['GameCollection']['GameCondition']['title'],
                     $offer['GameCollection']['Game']['price'],
                     $this->Time->format('d/m/Y', $offer['Offer']['created'])
+                        . $match
                 )
             );
         }

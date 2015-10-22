@@ -13,13 +13,25 @@
     );
 
     foreach ($collection as $game) {
+        $match = '';
+        if ($game['Offer'] && $game['Offer'][0]['Trade']) {
+            $match = $this->Html->link(
+                __('Match Found!', true),
+                array(
+                    'controller' => 'trades',
+                    'action' => 'add',
+                    $game['Offer'][0]['Trade']['id']),
+                array('class' => 'button match')
+            );
+        }
+
         echo $this->Html->tableCells(
             array(
                 $game['Game']['title'],
                 $game['GameCondition']['title'],
                 $game['Game']['price'],
                 $game['Offer']
-                    ? $this->Time->format('d/m/Y', $game['Offer'][0]['created'])
+                    ? $this->Time->format('d/m/Y', $game['Offer'][0]['created']) . $match
                     : $this->Html->link(
                         __('Offer now', true),
                         array(

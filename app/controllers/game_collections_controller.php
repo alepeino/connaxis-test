@@ -13,11 +13,13 @@ class GameCollectionsController extends AppController {
 	function index() {
 		$collection = $this->GameCollection->find('all',
 			array (
+				'recursive' => 2,
 				'conditions' => array (
 					'GameCollection.user_id' => $this->Auth->user('id')
 				)
 			)
 		);
+		//echo "<pre>";var_dump($collection);exit();
 		$this->set('collection', $collection);
 	}
 

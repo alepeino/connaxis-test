@@ -47,6 +47,10 @@ a.button {
 	color: #fff;
 	padding: 0.4em;
 }
+a.button.match {
+	float: right;
+	background: #993;
+}
 h1, h2, h3, h4 {
 	font-weight: normal;
 	margin-bottom:0.5em;

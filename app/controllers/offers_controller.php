@@ -4,11 +4,6 @@ class OffersController extends AppController {
     var $uses = array('Offer', 'GameCollection');
 
     function index() {
-        $this->Offer->bindModel(
-            array(
-                'belongsTo' => array('GameCollection')
-            )
-        );
         $offers = $this->Offer->find('all',
             array (
                 'recursive' => 2,
