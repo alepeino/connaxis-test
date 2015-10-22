@@ -7,15 +7,16 @@ echo $this->Session->flash();
 echo $this->Form->create('Offer');
 echo $this->Form->input(
     'Game.title',
-    array('label' => 'Game Title', 'readonly' => 'readonly')
+    array('label' => __('Game Title', true), 'readonly' => 'readonly')
 );
 echo $this->Form->input(
     'Game.price',
-    array('readonly' => 'readonly')
+    array('label' => __('Price', true), 'readonly' => 'readonly')
 );
 echo $this->Form->input(
     'GameCondition.title',
-    array('label' => 'Game condition', 'readonly' => 'readonly')
+    array('label' => __('Game condition', true), 'readonly' => 'readonly')
 );
 echo $this->Form->input('GameCollection.id');
-echo $this->Form->end('Confirm');
+echo $this->Form->end(__('Confirm', true));
+?>

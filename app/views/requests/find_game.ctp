@@ -4,8 +4,8 @@
 <table>
     <?php
     echo $this->Html->tableHeaders(array(
-        $this->Paginator->sort('Title', 'title'),
-        $this->Paginator->sort('Price', 'price')
+        $this->Paginator->sort(__('Title', true), 'title'),
+        $this->Paginator->sort(__('Price', true), 'price')
     ));
 
     foreach ($data as $game) {

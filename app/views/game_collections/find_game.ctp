@@ -2,26 +2,26 @@
 <h3><?php __('Choose a Game to add to your collection'); ?></h3>
 
 <table>
-    <tr>
-        <th><?php echo $this->Paginator->sort('Title', 'title'); ?></th>
-        <th><?php echo $this->Paginator->sort('Price', 'price'); ?></th>
-    </tr>
-    <?php foreach ($data as $game): ?>
-        <tr>
-            <td><?php
-                    echo $this->Html->link(
-                        $game['Game']['title'],
-                        array(
-                            'controller' => 'game_collections',
-                            'action' => 'add',
-                            $game['Game']['id']
-                        )
-                    );
-                ?>
-            </td>
-            <td><?php echo $game['Game']['price']; ?></td>
-        </tr>
-    <?php endforeach; ?>
+    <?php
+    echo $this->Html->tableHeaders(array(
+        $this->Paginator->sort(__('Title', true), 'title'),
+        $this->Paginator->sort(__('Price', true), 'price')
+    ));
+
+    foreach ($data as $game) {
+        echo $this->Html->tableCells(array(
+            $this->Html->link(
+                $game['Game']['title'],
+                array(
+                    'controller' => 'game_collections',
+                    'action' => 'add',
+                    $game['Game']['id']
+                )
+            ),
+            $game['Game']['price']
+        ));
+    }
+    ?>
 </table>
 
 <div class="table-paginator">

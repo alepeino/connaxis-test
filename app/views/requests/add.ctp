@@ -7,18 +7,19 @@ echo $this->Session->flash();
 echo $this->Form->create('Request');
 echo $this->Form->input(
     'Game.title',
-    array('label' => 'Game Title', 'readonly' => 'readonly')
+    array('label' => __('Game Title', true), 'readonly' => 'readonly')
 );
 echo $this->Form->input('Game.id');
 echo $this->Form->input(
     'Game.price',
-    array('readonly' => 'readonly')
+    array('label' => __('Price', true), 'readonly' => 'readonly')
 );
 echo $this->Form->input(
     'GameCondition.id',
     array(
-        'label' => 'Minimum game condition',
+        'label' => __('Minimum game condition', true),
         'options' => $game_conditions
     )
 );
 echo $this->Form->end(__('Confirm', true));
+?>
