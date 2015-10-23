@@ -45,7 +45,7 @@ CREATE TABLE `game_collections` (
 
 LOCK TABLES `game_collections` WRITE;
 /*!40000 ALTER TABLE `game_collections` DISABLE KEYS */;
-INSERT INTO `game_collections` VALUES (2,715,2,2,'2015-10-18 12:01:23','2015-10-18 12:01:23'),(3,753,2,2,'2015-10-18 12:01:25','2015-10-18 12:01:25'),(4,754,2,2,'2015-10-18 12:01:27','2015-10-18 12:01:27'),(5,715,3,2,'2015-10-18 12:01:23','2015-10-18 12:01:23'),(6,754,4,2,'2015-10-18 12:01:27','2015-10-18 12:01:27'),(7,753,3,2,'2015-10-18 12:01:25','2015-10-18 12:01:25'),(8,881,5,3,'2015-10-21 04:25:48','2015-10-21 04:25:48'),(9,789,5,3,'2015-10-21 04:26:04','2015-10-21 04:26:04'),(10,772,5,1,'2015-10-21 04:29:34','2015-10-21 04:29:34'),(11,708,2,2,'2015-10-22 00:24:37','2015-10-22 00:24:37'),(12,832,2,1,'2015-10-22 00:27:25','2015-10-22 00:27:25');
+INSERT INTO `game_collections` VALUES (2,715,2,2,'2015-10-18 12:01:23','2015-10-18 12:01:23'),(3,753,2,2,'2015-10-18 12:01:25','2015-10-18 12:01:25'),(4,754,2,2,'2015-10-18 12:01:27','2015-10-18 12:01:27'),(5,715,3,2,'2015-10-18 12:01:23','2015-10-18 12:01:23'),(6,754,4,2,'2015-10-18 12:01:27','2015-10-18 12:01:27'),(7,753,3,2,'2015-10-18 12:01:25','2015-10-18 12:01:25'),(8,881,5,3,'2015-10-21 04:25:48','2015-10-21 04:25:48'),(9,789,5,3,'2015-10-21 04:26:04','2015-10-21 04:26:04'),(10,772,3,1,'2015-10-21 04:29:34','2015-10-21 04:29:34'),(11,708,2,2,'2015-10-22 00:24:37','2015-10-22 00:24:37'),(12,832,2,1,'2015-10-22 00:27:25','2015-10-22 00:27:25');
 /*!40000 ALTER TABLE `game_collections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,33 +131,8 @@ CREATE TABLE `offers` (
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES ('5625b276-84f8-4492-b7d6-03e52c286a2a',2,1,'2015-10-18 12:01:23','2015-10-18 12:01:23'),('5625b2cf-8228-45c4-991c-04a92c286a2a',2,0,'2015-10-19 12:01:23','2015-10-18 12:01:23'),('5625b310-1ef4-4bec-bb56-03e72c286a2a',3,1,'2015-10-20 03:20:48','2015-10-20 03:20:48'),('5625b3c0-00b0-4606-96ff-03e52c286a2a',5,1,'2015-10-20 03:23:44','2015-10-20 03:23:44'),('562704f2-d1c8-43b7-be1d-00aa2c286a2a',4,1,'2015-10-21 03:22:26','2015-10-21 03:22:26'),('562714c1-c680-475b-b64f-02bc2c286a2a',10,1,'2015-10-21 04:29:53','2015-10-21 04:29:53'),('56282cd3-97b0-4aeb-b22b-036f2c286a2a',11,1,'2015-10-22 00:24:51','2015-10-22 00:24:51');
+INSERT INTO `offers` VALUES ('5625b276-84f8-4492-b7d6-03e52c286a2a',2,1,'2015-10-18 12:01:23','2015-10-18 12:01:23'),('5625b2cf-8228-45c4-991c-04a92c286a2a',2,0,'2015-10-19 12:01:23','2015-10-18 12:01:23'),('5625b310-1ef4-4bec-bb56-03e72c286a2a',3,1,'2015-10-20 03:20:48','2015-10-20 03:20:48'),('5625b3c0-00b0-4606-96ff-03e52c286a2a',5,1,'2015-10-20 03:23:44','2015-10-20 03:23:44'),('562704f2-d1c8-43b7-be1d-00aa2c286a2a',4,1,'2015-10-21 03:22:26','2015-10-21 03:22:26'),('562714c1-c680-475b-b64f-02bc2c286a2a',10,0,'2015-10-21 04:29:53','2015-10-22 23:49:35'),('56282cd3-97b0-4aeb-b22b-036f2c286a2a',11,1,'2015-10-22 00:24:51','2015-10-22 00:24:51'),('56296ed3-19d4-4872-a971-03d02c286a2a',9,1,'2015-10-22 23:18:43','2015-10-22 23:18:43');
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `prueba`
---
-
-DROP TABLE IF EXISTS `prueba`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `prueba` (
-  `offer_id` char(36) DEFAULT '',
-  `request_id` char(36) DEFAULT '',
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `prueba`
---
-
-LOCK TABLES `prueba` WRITE;
-/*!40000 ALTER TABLE `prueba` DISABLE KEYS */;
-INSERT INTO `prueba` VALUES ('562714c1-c680-475b-b64f-02bc2c286a2a','56285391-d1d4-45a9-8652-03702c286a2a',3),('562714c1-c680-475b-b64f-02bc2c286a2a','56285391-d1d4-45a9-8652-03702c286a2a',4);
-/*!40000 ALTER TABLE `prueba` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -190,7 +165,7 @@ CREATE TABLE `requests` (
 
 LOCK TABLES `requests` WRITE;
 /*!40000 ALTER TABLE `requests` DISABLE KEYS */;
-INSERT INTO `requests` VALUES ('56284a0d-48b0-4497-b66b-00ac2c286a2a',2,713,1,1,'2015-10-22 02:29:33','2015-10-22 02:29:33'),('56284a26-e240-4ae5-a21a-036f2c286a2a',3,2843,1,1,'2015-10-22 02:29:58','2015-10-22 02:29:58'),('56285391-d1d4-45a9-8652-03702c286a2a',3,772,1,1,'2015-10-22 03:10:09','2015-10-22 03:10:09');
+INSERT INTO `requests` VALUES ('56284a0d-48b0-4497-b66b-00ac2c286a2a',2,713,1,1,'2015-10-22 02:29:33','2015-10-22 02:29:33'),('56284a26-e240-4ae5-a21a-036f2c286a2a',3,2843,1,1,'2015-10-22 02:29:58','2015-10-22 02:29:58'),('56285391-d1d4-45a9-8652-03702c286a2a',3,772,1,0,'2015-10-22 03:10:09','2015-10-22 23:49:35');
 /*!40000 ALTER TABLE `requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +185,7 @@ CREATE TABLE `trades` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `offer_id` (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +194,7 @@ CREATE TABLE `trades` (
 
 LOCK TABLES `trades` WRITE;
 /*!40000 ALTER TABLE `trades` DISABLE KEYS */;
-INSERT INTO `trades` VALUES (7,'562714c1-c680-475b-b64f-02bc2c286a2a','56285391-d1d4-45a9-8652-03702c286a2a',1,'2015-10-22 19:48:44','2015-10-22 19:48:44');
+INSERT INTO `trades` VALUES (8,'562714c1-c680-475b-b64f-02bc2c286a2a','56285391-d1d4-45a9-8652-03702c286a2a',0,'2015-10-22 20:06:48','2015-10-22 23:49:35');
 /*!40000 ALTER TABLE `trades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,13 +224,65 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'gordon.freeman@blackmesa.net','57d6c2535d86865db6a95a68d33f85deac8d7e4b','gFreeman',100.00,'2015-10-16 16:34:30','2015-10-16 16:34:30'),(2,'shigeru.miyamoto@nintendo.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Shigeru',50.00,'2015-10-16 16:35:33','2015-10-22 02:29:33'),(3,'jcdenton@unatco.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','JCD',82.50,'2015-10-16 16:35:55','2015-10-22 03:10:09'),(4,'terra@ff6.org','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Terra',150.00,'2015-10-16 16:36:48','2015-10-16 16:36:48'),(5,'leon.kennedy@rcpd.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Leon',250.00,'2015-10-16 16:37:55','2015-10-21 04:29:34');
+INSERT INTO `users` VALUES (1,'gordon.freeman@blackmesa.net','57d6c2535d86865db6a95a68d33f85deac8d7e4b','gFreeman',100.00,'2015-10-16 16:34:30','2015-10-16 16:34:30'),(2,'shigeru.miyamoto@nintendo.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Shigeru',50.00,'2015-10-16 16:35:33','2015-10-22 02:29:33'),(3,'jcdenton@unatco.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','JCD',82.50,'2015-10-16 16:35:55','2015-10-22 03:10:09'),(4,'terra@ff6.org','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Terra',150.00,'2015-10-16 16:36:48','2015-10-16 16:36:48'),(5,'leon.kennedy@rcpd.com','57d6c2535d86865db6a95a68d33f85deac8d7e4b','Leon',170.00,'2015-10-16 16:37:55','2015-10-21 04:29:34');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'connaxis'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `confirm_trade` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE PROCEDURE `confirm_trade`(trade_id int, confirmed int)
+BEGIN
+	START TRANSACTION;
+	
+	UPDATE trades t
+	JOIN offers o ON t.offer_id = o.id
+	JOIN requests r ON t.request_id = r.id
+	SET t.status = 0, t.modified = NOW(),
+		o.status = 0, o.modified = NOW(),
+		r.status = 0, r.modified = NOW()
+	WHERE t.id = trade_id;
+	
+	IF confirmed = 1
+	THEN
+		UPDATE trades t
+		JOIN requests r ON t.request_id = r.id
+		JOIN offers o ON t.offer_id = o.id
+		JOIN game_collections gc ON o.game_collection_id = gc.id
+		JOIN games g ON gc.game_id = g.id
+		JOIN users u ON gc.user_id = u.id
+		SET u.account_balance = u.account_balance + g.price,
+			gc.user_id = r.user_id
+		WHERE t.id = trade_id;
+	ELSE
+		UPDATE trades t
+		JOIN requests r ON t.request_id = r.id
+		JOIN users u ON r.user_id = u.id
+		JOIN offers o ON t.offer_id = o.id
+		JOIN game_collections gc ON o.game_collection_id = gc.id
+		JOIN games g ON gc.game_id = g.id
+		SET u.account_balance = u.account_balance + g.price
+		WHERE t.id = trade_id;
+	END IF;
+	
+	COMMIT;
+	
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `do_matches` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -399,4 +426,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-22 19:55:13
+-- Dump completed on 2015-10-22 23:50:59

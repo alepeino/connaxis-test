@@ -19,7 +19,6 @@ class GameCollectionsController extends AppController {
 				)
 			)
 		);
-		//echo "<pre>";var_dump($collection);exit();
 		$this->set('collection', $collection);
 	}
 

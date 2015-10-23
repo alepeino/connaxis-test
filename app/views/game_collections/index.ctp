@@ -19,7 +19,7 @@
                 __('Match Found!', true),
                 array(
                     'controller' => 'trades',
-                    'action' => 'add',
+                    'action' => 'confirm',
                     $game['Offer'][0]['Trade']['id']),
                 array('class' => 'button match')
             );

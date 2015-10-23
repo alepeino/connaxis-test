@@ -161,6 +161,12 @@ div.centered {
 	text-align: center;
 	margin-top: 2em;
 }
+div.ok-cancel {
+	text-align: center;
+}
+div.ok-cancel > div {
+	display: inline;
+}
 div.table-paginator {
 	text-align: right;
 }

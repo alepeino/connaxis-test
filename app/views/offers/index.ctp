@@ -17,7 +17,7 @@
             if ($offer['Trade']['id']) {
                 $match = $this->Html->link(
                     __('Match Found!', true),
-                    array('controller' => 'trades', 'action' => 'add', $offer['Trade']['id']),
+                    array('controller' => 'trades', 'action' => 'confirm', $offer['Trade']['id']),
                     array('class' => 'button match')
                 );
             }
