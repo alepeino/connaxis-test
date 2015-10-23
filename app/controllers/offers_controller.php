@@ -43,6 +43,7 @@ class OffersController extends AppController {
         }
         else {
             $this->Offer->saveField('game_collection_id', $this->data['GameCollection']['id']);
+            $this->Session->setFlash(__('Offer confirmed', true));
             $this->redirect('/mycollection');
         }
     }

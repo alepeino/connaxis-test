@@ -37,6 +37,7 @@ class GameCollectionsController extends AppController {
 		else {
 			$this->data['User']['id'] = $this->Auth->user('id');
 			$this->GameCollection->saveAll($this->data);
+			$this->Session->setFlash(__('Game added to your Collection', true));
 			$this->redirect('/mycollection');
 		}
 	}

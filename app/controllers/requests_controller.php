@@ -36,6 +36,7 @@ class RequestsController extends AppController {
 		else {
 			$this->data['User']['id'] = $this->Auth->user('id');
 			$this->Request->saveAll($this->data);
+			$this->Session->setFlash(__('Request confirmed', true));
 			$this->redirect('/myrequests');
 		}
 	}
